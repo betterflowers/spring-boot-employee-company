@@ -1,11 +1,15 @@
 package com.thoughtworks.springbootemployee.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Company {
 
     private int id;
     private String name;
     private Integer page;
     private Integer pageSize;
+    private List<Employee> employees;
 
     public Company(int id, String name, Integer page, Integer pageSize) {
         this.id = id;
@@ -14,6 +18,7 @@ public class Company {
         this.pageSize = pageSize;
     }
     public Company(){
+        this.employees = new ArrayList<>();
 
     }
 
@@ -47,5 +52,13 @@ public class Company {
 
     public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 }
