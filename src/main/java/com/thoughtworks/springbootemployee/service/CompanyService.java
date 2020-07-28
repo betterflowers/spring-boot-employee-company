@@ -21,7 +21,7 @@ public class CompanyService {
         return companyList;
     }
 
-    public Company getCompanyById(int id){
+    public Company getCompanyById(Integer id){
         for(Company company:companyList){
             if(company.getId() == id){
                 return company;
@@ -30,7 +30,7 @@ public class CompanyService {
         return null;
     }
 
-    public List<Employee> getAllEmployeesOfCompany(int id){
+    public List<Employee> getAllEmployeesOfCompany(Integer id){
         Company company = getCompanyById(id);
         return company.getEmployees();
     }
@@ -51,7 +51,7 @@ public class CompanyService {
         companyList.add(company);
     }
 
-    public void updateCompany(int id,Company company){
+    public void updateCompany(Integer id,Company company){
         for (Company emp:companyList){
             if(emp.getId() == id){
                 companyList.remove(emp);
@@ -61,7 +61,7 @@ public class CompanyService {
         }
     }
 
-    public void deleteCompanyById(int id){
+    public void deleteCompanyById(Integer id){
         for(Company company:companyList){
             if(company.getId() == id){
                 companyList.remove(company);

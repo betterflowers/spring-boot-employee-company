@@ -5,13 +5,13 @@ import java.util.List;
 
 public class Company {
 
-    private int id;
+    private Integer id;
     private String name;
     private Integer page;
-    private Integer pageSize;
-    private List<Employee> employees;
+    private Integer pageSize = null;
+    private List<Employee> employees = null;
 
-    public Company(int id, String name, Integer page, Integer pageSize) {
+    public Company(Integer id, String name, Integer page, Integer pageSize) {
         this.id = id;
         this.name = name;
         this.page = page;
@@ -22,7 +22,7 @@ public class Company {
 
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -38,7 +38,7 @@ public class Company {
         this.name = name;
     }
 
-    public int getPage() {
+    public Integer getPage() {
         return page;
     }
 
@@ -46,7 +46,7 @@ public class Company {
         this.page = page;
     }
 
-    public int getPageSize() {
+    public Integer getPageSize() {
         return pageSize;
     }
 

@@ -20,7 +20,7 @@ public class EmployeeService {
         return employeeList;
     }
 
-    public Employee getEmployeeById(int id){
+    public Employee getEmployeeById(Integer id){
         for(Employee employee:employeeList){
             if(employee.getId() == id){
                 return employee;
@@ -58,7 +58,7 @@ public class EmployeeService {
         employeeList.add(employee);
     }
 
-    public void updateEmployee(int id,Employee employee){
+    public void updateEmployee(Integer id,Employee employee){
         for (Employee emp:employeeList){
             if(emp.getId() == id){
                 employeeList.remove(emp);
@@ -68,7 +68,7 @@ public class EmployeeService {
         }
     }
 
-    public void deleteEmployeeById(int id){
+    public void deleteEmployeeById(Integer id){
         for(Employee employee:employeeList){
             if(employee.getId() == id){
                 employeeList.remove(employee);

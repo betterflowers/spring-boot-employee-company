@@ -12,8 +12,13 @@ public class CompanyController {
 
     private CompanyService companyService;
 
+//    @GetMapping(path = "/companies")
+//    public List<Company> getCompanyList(){
+//        return companyService.getCompanyList();
+//    }
+
     @GetMapping(path = "/companies/{id}")
-    public Company getCompanyById(@PathVariable int id) {
+    public Company getCompanyById(@PathVariable Integer id) {
         return companyService.getCompanyById(id);
     }
 
@@ -22,13 +27,14 @@ public class CompanyController {
         companyService.addCompany(company);
     }
 
+
     @PutMapping(path = "/companies/{id}")
-    public void updateCompany(@PathVariable int id, Company company){
+    public void updateCompany(@PathVariable Integer id, Company company){
         companyService.updateCompany(id,company);
     }
 
     @DeleteMapping(path = "/companies/{id}")
-    public void deleteCompany(@PathVariable int id){
+    public void deleteCompany(@PathVariable Integer id){
         companyService.deleteCompanyById(id);
     }
 
@@ -42,7 +48,7 @@ public class CompanyController {
     }
 
     @GetMapping(path = "/companies/{id}/employees")
-    public List<Employee> getAllEmployeesOfCompany(int id){
+    public List<Employee> getAllEmployeesOfCompany(Integer id){
         return companyService.getAllEmployeesOfCompany(id);
     }
 
