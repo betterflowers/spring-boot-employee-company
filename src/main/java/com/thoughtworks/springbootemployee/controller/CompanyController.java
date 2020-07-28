@@ -12,6 +12,11 @@ public class CompanyController {
 
     private CompanyService companyService;
 
+    @GetMapping(path = "/companies/{id}")
+    public Company getCompanyById(@PathVariable int id) {
+        return companyService.getCompanyById(id);
+    }
+
     @PostMapping(path = "/companies")
     public void addCompany(Company company){
         companyService.addCompany(company);

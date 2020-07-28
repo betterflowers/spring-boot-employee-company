@@ -1,6 +1,8 @@
 package com.thoughtworks.springbootemployee.service;
 
 import com.thoughtworks.springbootemployee.entity.Company;
+import com.thoughtworks.springbootemployee.entity.CompanyMapEmployee;
+import com.thoughtworks.springbootemployee.entity.Employee;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -26,6 +28,11 @@ public class CompanyService {
             }
         }
         return null;
+    }
+
+    public List<Employee> getAllEmployeesOfCompany(int id){
+        Company company = getCompanyById(id);
+        return company.getEmployees();
     }
 
     public List<Company> getCompanyByPageAndPageSize(Integer page, Integer pageSize){
