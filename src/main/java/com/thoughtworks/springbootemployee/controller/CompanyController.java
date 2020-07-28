@@ -41,5 +41,9 @@ public class CompanyController {
         return companyService.getCompanyByPageAndPageSize(page, pageSize);
     }
 
+    @GetMapping(path = "/companies/{id}/employees")
+    public List<Employee> getAllEmployeesOfCompany(int id){
+        return companyService.getAllEmployeesOfCompany(id);
+    }
 
 }
