@@ -3,6 +3,7 @@ package com.thoughtworks.springbootemployee.controller;
 import com.thoughtworks.springbootemployee.entity.Company;
 import com.thoughtworks.springbootemployee.entity.Employee;
 import com.thoughtworks.springbootemployee.service.CompanyService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,12 +11,13 @@ import java.util.List;
 @RestController
 public class CompanyController {
 
+    @Autowired
     private CompanyService companyService;
 
-//    @GetMapping(path = "/companies")
-//    public List<Company> getCompanyList(){
-//        return companyService.getCompanyList();
-//    }
+    @GetMapping(path = "/companies")
+    public List<Company> getCompanyList(){
+        return companyService.getCompanyList();
+    }
 
     @GetMapping(path = "/companies/{id}")
     public Company getCompanyById(@PathVariable Integer id) {
@@ -23,13 +25,13 @@ public class CompanyController {
     }
 
     @PostMapping(path = "/companies")
-    public void addCompany(Company company){
+    public void addCompany(@RequestBody Company company){
         companyService.addCompany(company);
     }
 
 
     @PutMapping(path = "/companies/{id}")
-    public void updateCompany(@PathVariable Integer id, Company company){
+    public void updateCompany(@PathVariable Integer id,@RequestBody Company company){
         companyService.updateCompany(id,company);
     }
 
@@ -38,17 +40,9 @@ public class CompanyController {
         companyService.deleteCompanyById(id);
     }
 
-    @GetMapping(path = "/companies")
-    public List<Company> getCompanyList(@RequestParam(required = false) Integer page,
-                                      @RequestParam(required = false) Integer pageSize){
-        if (page == null || pageSize == null) {
-            return companyService.getCompanyList();
-        }
-        return companyService.getCompanyByPageAndPageSize(page, pageSize);
-    }
 
     @GetMapping(path = "/companies/{id}/employees")
-    public List<Employee> getAllEmployeesOfCompany(Integer id){
+    public List<Employee> getAllEmployeesOfCompany(@PathVariable Integer id){
         return companyService.getAllEmployeesOfCompany(id);
     }
 

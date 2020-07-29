@@ -22,23 +22,11 @@ public class EmployeeService {
 
     public Employee getEmployeeById(Integer id){
         for(Employee employee:employeeList){
-            if(employee.getId() == id){
+            if(employee.getId().equals(id)){
                 return employee;
             }
         }
         return  null;
-    }
-
-    public List<Employee> getEmployeeByPageAndPageSize(Integer page,Integer pageSize){
-
-        ArrayList<Employee> result =new ArrayList<Employee>();
-
-        for(Employee employee:employeeList){
-            if(employee.getPage() == page && employee.getPageSize()== pageSize){
-                result.add(employee);
-            }
-        }
-        return result;
     }
 
     public List<Employee> getEmployeeByGender(String gender){
@@ -58,9 +46,9 @@ public class EmployeeService {
         employeeList.add(employee);
     }
 
-    public void updateEmployee(Integer id,Employee employee){
+    public void updateEmployee(Employee employee){
         for (Employee emp:employeeList){
-            if(emp.getId() == id){
+            if(emp.getId().equals(employee.getId())){
                 employeeList.remove(emp);
                 employeeList.add(employee);
                 return;
@@ -70,7 +58,7 @@ public class EmployeeService {
 
     public void deleteEmployeeById(Integer id){
         for(Employee employee:employeeList){
-            if(employee.getId() == id){
+            if(employee.getId().equals(id)){
                 employeeList.remove(employee);
                 return;
             }

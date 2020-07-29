@@ -35,17 +35,17 @@ public class CompanyService {
         return company.getEmployees();
     }
 
-    public List<Company> getCompanyByPageAndPageSize(Integer page, Integer pageSize){
-
-        ArrayList<Company> result =new ArrayList<Company>();
-
-        for(Company company:companyList){
-            if(company.getPage() == page &&company.getPageSize()== pageSize){
-                result.add(company);
-            }
-        }
-        return result;
-    }
+//    public List<Company> getCompanyByPageAndPageSize(Integer page, Integer pageSize){
+//
+//        ArrayList<Company> result =new ArrayList<>();
+//
+//        for(Company company:companyList){
+//            if(company.getPage() == page &&company.getPageSize()== pageSize){
+//                result.add(company);
+//            }
+//        }
+//        return result;
+//    }
 
     public void addCompany(Company company){
         companyList.add(company);

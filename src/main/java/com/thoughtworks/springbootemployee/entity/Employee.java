@@ -6,27 +6,12 @@ public class Employee {
     private String name;
     private Integer age;
     private String gender;
-    private Integer page =null;
-    private Integer pageSize = null;
-
-    public Employee(Integer id, String name, Integer age, String gender, Integer page, Integer pageSize) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
-        this.page = page;
-        this.pageSize = pageSize;
-    }
-
-    public  Employee(){
-
-    }
 
     public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -42,7 +27,7 @@ public class Employee {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -52,21 +37,5 @@ public class Employee {
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public Integer getPage() {
-        return page;
-    }
-
-    public void setPage(Integer page) {
-        this.page = page;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
     }
 }

@@ -7,26 +7,18 @@ public class Company {
 
     private Integer id;
     private String name;
-    private Integer page;
-    private Integer pageSize = null;
+
     private List<Employee> employees = null;
 
-    public Company(Integer id, String name, Integer page, Integer pageSize) {
-        this.id = id;
-        this.name = name;
-        this.page = page;
-        this.pageSize = pageSize;
-    }
-    public Company(){
-        this.employees = new ArrayList<>();
-
+    public List<Employee> getEmployees() {
+        return employees;
     }
 
     public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -36,26 +28,6 @@ public class Company {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getPage() {
-        return page;
-    }
-
-    public void setPage(Integer page) {
-        this.page = page;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public List<Employee> getEmployees() {
-        return employees;
     }
 
     public void setEmployees(List<Employee> employees) {

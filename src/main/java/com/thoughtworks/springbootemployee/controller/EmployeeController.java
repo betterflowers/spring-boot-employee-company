@@ -14,34 +14,30 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+    @GetMapping(path = "/employees")
+    public List<Employee> getEmployees(){
+        return employeeService.getEmployees();
+    }
+
     @GetMapping(path = "/employees/{id}")
     public Employee getEmployeeById(@PathVariable Integer id) {
         return employeeService.getEmployeeById(id);
     }
 
-    @GetMapping(path = "/employees")
-    public List<Employee> getPageList(@RequestParam(required = false) Integer page,
-                                      @RequestParam(required = false) Integer pageSize,
-                                      @RequestParam(required = false) String gender) {
-        if (page == null || pageSize == null) {
-            return employeeService.getEmployees();
-        }
-        if (gender != null) {
-            return employeeService.getEmployeeByGender(gender);
-        }
-        return employeeService.getEmployeeByPageAndPageSize(page, pageSize);
+    @GetMapping(path = "/employees", params = "gender")
+    public List<Employee> getEmployeeByGender(@RequestParam String gender) {
+        return employeeService.getEmployeeByGender(gender);
     }
 
-
     @PostMapping(path = "/employees")
-    public void addEmployee(Employee employee) {
+    public void addEmployee(@RequestBody Employee employee) {
         employeeService.addEmployee(employee);
     }
 
     @PutMapping(path = "/employees/{id}")
-    public void updateEmployee(@PathVariable Integer id, Employee employee) {
+    public void updateEmployee(@PathVariable Integer id, @RequestBody Employee employee) {
 
-        employeeService.updateEmployee(id, employee);
+        employeeService.updateEmployee(employee);
 
     }
 
